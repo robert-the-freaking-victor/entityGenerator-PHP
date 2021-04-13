@@ -1,7 +1,6 @@
 import os
 import sys
 
-
 # sys.argv order: entityName, outputPath
 
 def main():
