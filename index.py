@@ -1,41 +1,25 @@
 import os
 import sys
-
-# sys.argv order: entityName, outputPath
+import json
+from phpService import PHPService
+from xmlService import XMLService
 
 def main():
-  config = get_config()
-  print("[INFO] Creating the file configuration")
-  create_new_files(config["entity_name"], config["output_path"], "./configs", ".xml", ".xml")
-  create_new_files(config["entity_name"], config["output_path"], "./models", ".txt", ".php")
-
-def create_new_files(entity_name, output_path, model_path, ext_model, ext_new_file):
-  filenames = ["Controller", "Factory", "Service"]
-  for file in filenames:
-    full_filename = file + ext_model
-    full_path = os.path.join(model_path, full_filename)
-    new_filename = entity_name + file + ext_new_file
-    full_output_path = os.path.join(output_path, new_filename)
-    with open(full_path, "r") as file_stream:
-      text = file_stream.readlines()
-      formated_text = []
-      for line in text:
-        new_line = fill_line(line, entity_name)
-        formated_text.append(new_line)
-      with open(full_output_path, "w") as file2_stream:
-        file2_stream.writelines(formated_text)
-
-def fill_line(line, value):
-  line = line.replace("{}", value)
-  return line
-
-def get_config():
-  config = {
-    "entity_name": sys.argv[1],
-    "output_path": sys.argv[2]
-  }
-  print(config)
-  return config
+  config = None
+  with open("./config.json") as file_stream:
+    config = json.load(file_stream)
+  entity_name = sys.argv[1]
+  print("[INFO] Creating the file configuration...")
+  xml = XMLService()
+  php = PHPService()
+  xml.append_xml(config["xmlControllerReal"], entity_name, config["xmlControllerTemplate"])
+  xml.append_xml(config["xmlFactoryReal"], entity_name, config["xmlFactoryTemplate"])
+  xml.append_xml(config["xmlServiceReal"], entity_name, config["xmlServiceTemplate"])
+  print("[INFO] Creating the php files...")
+  php.create_php(config["phpControllerOutput"], entity_name, config["phpControllerTemplate"], "Controller")
+  php.create_php(config["phpFactoryOutput"], entity_name, config["phpFactoryTemplate"], "Factory")
+  php.create_php(config["phpServiceOutput"], entity_name, config["phpServiceTemplate"], "Service")
+  print("[INFO] Entity was created without errors.")
 
 if __name__ == "__main__":
   main()
