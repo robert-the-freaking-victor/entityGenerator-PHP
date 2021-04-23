@@ -1,0 +1,14 @@
+{
+  "xmlControllerTemplate": "./xmlTemplates/controller.xml",
+  "xmlControllerReal": "../config/controller.xml",
+  "phpControllerTemplate": "./phpTemplates/controller.php",
+  "phpControllerOutput": "../src/Teknisa/FM/Controller",
+  "xmlFactoryTemplate": "./xmlTemplates/factory.xml",
+  "xmlFactoryReal": "../config/factory.xml",
+  "phpFactoryTemplate": "./phpTemplates/factory.php",
+  "phpFactoryOutput": "../src/Teknisa/FM/Factory",
+  "xmlServiceTemplate": "./xmlTemplates/service.xml",
+  "xmlServiceReal": "../config/services.xml",
+  "phpServiceTemplate": "./phpTemplates/service.php",
+  "phpServiceOutput": "../src/Teknisa/FM/Service"
+}
