@@ -1,3 +1,0 @@
-<service id="FM\Controller\{}Controller" class="FM\Controller\{}Controller" parent="FMCrud">
-  <argument type="service" id="FM\Service\{}Service" />
-</service>

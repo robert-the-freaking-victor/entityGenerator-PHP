@@ -1,5 +1,0 @@
-<service id="FM\Service\{}Service" class="FM\Service\{}Service">
-  <argument type="service" id="FM\Factory\{}Factory" />
-  <argument type="service" id="environment" />
-  <argument type="service" id="newCode"/>
-</service>
