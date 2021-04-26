@@ -1,0 +1,14 @@
+{
+  "xmlControllerTemplate": "./xmlTemplates/controller.xml",
+  "xmlControllerReal": "../../../../../config/controllers.xml",
+  "phpControllerTemplate": "./phpTemplates/controller.php",
+  "phpControllerOutput": "../../Controller",
+  "xmlFactoryTemplate": "./xmlTemplates/factory.xml",
+  "xmlFactoryReal": "../../../../../config/factories.xml",
+  "phpFactoryTemplate": "./phpTemplates/factory.php",
+  "phpFactoryOutput": "../../Factory",
+  "xmlServiceTemplate": "./xmlTemplates/service.xml",
+  "xmlServiceReal": "../../../../../config/services.xml",
+  "phpServiceTemplate": "./phpTemplates/service.php",
+  "phpServiceOutput": "../../Service"
+}

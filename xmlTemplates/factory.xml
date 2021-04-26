@@ -1,0 +1,3 @@
+<service id="FM\Factory\{}Factory" class="FM\Factory\{}Factory">
+  <argument type="service" id="entityManager"/>
+</service>
